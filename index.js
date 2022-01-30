@@ -1,5 +1,5 @@
 const Discord = require("discord.js")
-const TOKEN = "OTM1ODkzNjEyMzQ3MTQ2MzMw.YfFQ2Q.4UBfMaiLszhsZXbcdE41g-sBPRU"
+require("dotenv").config()
 
 const client = new Discord.Client({
     intents: [
@@ -9,18 +9,13 @@ const client = new Discord.Client({
 })
 
 client.on("ready", () => {
-    console.log('Logged in as Xiao#5479')
+    console.log(`Login ${client.user.tag}`)
 })
 
 client.on("messageCreate", (message) => {
     if (message.content == "hi"){
-        message.reply("Hello!")
-    }
-    else {
-        if (message.content == "hello"){
-            message.reply("Hi!")
-        }
+        message.reply("Hello World!")
     }
 })
 
-client.login(TOKEN)
+client.login(process.env.TOKEN)
